@@ -1,0 +1,6 @@
+thrml
+numpy
+scipy
+matplotlib
+jupyter
+ipykernel

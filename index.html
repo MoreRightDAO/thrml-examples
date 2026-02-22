@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THRML Examples — Void Framework</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #6366f1;
+    --accent2: #22d3ee;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --tag-core: #1e3a5f;
+    --tag-exp: #1a3a2a;
+    --tag-text: #93c5fd;
+    --tag-exp-text: #6ee7b7;
+    --pe-high: #ef4444;
+    --pe-mid: #f59e0b;
+    --pe-low: #22c55e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .nav-sep { color: var(--border); font-size: 1.2rem; }
+  .nav-title { font-size: 0.9rem; color: var(--muted); }
+  nav a.external {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  nav a.external:hover { border-color: var(--accent); color: var(--text); }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 2rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 2rem;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+
+  /* CAUSAL BANNER */
+  .causal-banner {
+    background: linear-gradient(135deg, #0f1a2e, #0a1a1a);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .causal-item { }
+  .causal-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .causal-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+    line-height: 1.4;
+  }
+
+  /* PARAMS */
+  .params-block {
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+  }
+  .params-block h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .params-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .param {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .param-name {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  .param-val {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .param-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .section-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .section-header .count {
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 99px;
+  }
+
+  /* NOTEBOOK GRID */
+  .notebook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+  }
+
+  .nb-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s, transform 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .nb-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .nb-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .nb-num {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .nb-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .nb-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .nb-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .nb-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+  .tag-core { background: var(--tag-core); color: var(--tag-text); }
+  .tag-exp { background: var(--tag-exp); color: var(--tag-exp-text); }
+  .nb-result {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .nb-result.pe-high { color: var(--pe-high); }
+  .nb-result.pe-low { color: var(--pe-low); }
+  .nb-result.pe-mid { color: var(--pe-mid); }
+
+  /* FIGURE GALLERY */
+  .figure-gallery {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+  }
+  .fig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .fig-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .fig-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #fff;
+    padding: 0.5rem;
+    display: block;
+  }
+  .fig-caption {
+    padding: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+    border-top: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* TABS */
+  .tabs {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tab {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .tab.active, .tab:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://moreright.xyz">MoreRight</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-title">THRML Examples</span>
+  <a class="external" href="https://github.com/MoreRightDAO/thrml-examples">GitHub ↗</a>
+  <a class="external" href="https://github.com/extropic-ai/thrml">THRML Lib ↗</a>
+  <a class="external" href="https://github.com/MoreRightDAO/VOID-FRAMEWORK-OPERATION-MORR">Papers ↗</a>
+</nav>
+
+<div class="hero">
+  <h1>THRML applied to<br><span>behavioral drift</span></h1>
+  <p>28 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">28</div>
+      <div class="stat-label">Notebooks</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7.94</div>
+      <div class="stat-label">Empirical Pe (N=11)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/27</div>
+      <div class="stat-label">Bradford Hill Criteria</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.0</div>
+      <div class="stat-label">BF log₁₀ (Jeffreys)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Independent Controls</div>
+    </div>
+  </div>
+</div>
+
+<div class="causal-banner">
+  <div class="causal-item">
+    <div class="causal-val">Pe = 7.94</div>
+    <div class="causal-desc">Empirical Péclet number at N=11 platforms. 95% CI [3.52, 17.89]. Drift-dominated regime confirmed.</div>
+  </div>
+  <div class="causal-item">
+    <div class="causal-val">BF log₁₀ = 4.0</div>
+    <div class="causal-desc">Bayesian model comparison at N=22. Decisive evidence on Jeffreys scale — causal case closed.</div>
+  </div>
+  <div class="causal-item">
+    <div class="causal-val">Pe ≈ 1.02</div>
+    <div class="causal-desc">Wikipedia editor null case. Near-equilibrium control confirms Pe measures engagement-driven drift, not general internet use.</div>
+  </div>
+  <div class="causal-item">
+    <div class="causal-val">Pe ≈ 0.98</div>
+    <div class="causal-desc">Passive index investing control. Second independent null. Optimizer-free systems sit at equilibrium.</div>
+  </div>
+</div>
+
+<div class="params-block">
+  <h3>Canonical Parameters — derived once, validated everywhere</h3>
+  <div class="params-grid">
+    <div class="param">
+      <span class="param-name">b_α = 0.867</span>
+      <span class="param-val">drift bias</span>
+      <span class="param-desc">Agency attribution pull — how strongly the system biases toward continued engagement</span>
+    </div>
+    <div class="param">
+      <span class="param-name">b_γ = 2.244</span>
+      <span class="param-val">constraint bias</span>
+      <span class="param-desc">Transparency pull — constraint specification strength per spin</span>
+    </div>
+    <div class="param">
+      <span class="param-name">c_crit(K→∞) ≈ 0.386</span>
+      <span class="param-val">drift boundary</span>
+      <span class="param-desc">Hardware-independent critical constraint level. Pe = 1 asymptote. Above this: diffusion. Below: drift.</span>
+    </div>
+    <div class="param">
+      <span class="param-name">Pe ∝ K</span>
+      <span class="param-val">hardware scaling</span>
+      <span class="param-desc">Péclet number scales linearly with spin count K — larger systems drift proportionally harder</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-header">
+  <h2>Core Notebooks</h2>
+  <span class="count">23</span>
+</div>
+
+<div class="notebook-grid">
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/03_drift_cascade_ebm.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">03</span>
+      <span class="nb-title">Drift Cascade EBM</span>
+    </div>
+    <div class="nb-desc">Encode D1→D2→D3 drift cascade as an Ising EBM. Forward vs reverse trajectory Péclet numbers. Two-agent coupling term J.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">Pe_fwd = 7.94 ± 1.2</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/04_fitting_ebm_from_data.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">04</span>
+      <span class="nb-title">EBM Parameter Fitting</span>
+    </div>
+    <div class="nb-desc">Grid search + Nelder-Mead fitting of THRML Ising parameters from experimental behavioral equilibria. Loss landscape visualization.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">rank order UU > Partial > GG</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/05_time_varying_potentials.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">05</span>
+      <span class="nb-title">Time-Varying Potentials</span>
+    </div>
+    <div class="nb-desc">Five constraint injection schedules compared: persistent, one-shot, 4-step ramp, 8-step ramp, exponential decay. Persistent wins. One-shot rebounds.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-mid">per-step CV > 0.5</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/06_fluctuation_theorems.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">06</span>
+      <span class="nb-title">Fluctuation Theorem Verification</span>
+    </div>
+    <div class="nb-desc">Crooks (1999) + Jarzynski (1997) verification on 32-spin 1D Ising chain. Detailed balance, entropy production σ, transient vs equilibrium skewness.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">Pe ratio 3.1× confirmed</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/07_pe_calibration.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">07a</span>
+      <span class="nb-title">Péclet Calibration</span>
+    </div>
+    <div class="nb-desc">Derive canonical parameters from UU/GG fixed points. Calibration A (no fitting) and B (least squares) — both converge. Cross-population rank ordering.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">b_α ∈ [0.84, 0.90]</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/07_crooks_behavioral_test.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">07b</span>
+      <span class="nb-title">Crooks Behavioral Test</span>
+    </div>
+    <div class="nb-desc">Apply Crooks fluctuation theorem as a causal test on AI agent interaction trajectories. Forward/reverse work distributions. Asymmetry = drift.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">Asymmetry confirmed</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/08_phase_diagram.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">08</span>
+      <span class="nb-title">Phase Diagram (c, K)</span>
+    </div>
+    <div class="nb-desc">Full (c, K) contour map of Pe. Analytic critical line c_crit(K). Asymptote at 0.386. Empirical population overlays — all deep in drift-dominated territory.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">c_crit(∞) = 0.386</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/09_bull_bear_time_varying.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">09</span>
+      <span class="nb-title">Bull/Bear Market Regimes</span>
+    </div>
+    <div class="nb-desc">Financial market regime shifts as time-varying THRML potentials. Bull phase: low constraint, high Pe. Bear phase: high constraint, Pe suppressed.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-mid">Pe sensitivity mapped</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/10_cross_domain_calibration.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">10</span>
+      <span class="nb-title">Cross-Domain Calibration</span>
+    </div>
+    <div class="nb-desc">Single canonical parameter set calibrated across 7 behavioral domains (social media, gambling, retail brokerage, news, AI companions, gaming, crypto). One set fits all.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">7 domains, 1 parameter set</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/11_stablecoin_constraint.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">11</span>
+      <span class="nb-title">Stablecoin Constraint</span>
+    </div>
+    <div class="nb-desc">Stablecoin peg mechanisms modeled as constraint injection. Pe suppression under algorithmic vs collateral-backed pegs. Depeg dynamics as potential failure.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-low">Pe suppressed below 1</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/12_k_scaling.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">12</span>
+      <span class="nb-title">Hardware Scaling (K)</span>
+    </div>
+    <div class="nb-desc">Pe scales linearly with spin count K. At fixed constraint level c, larger hardware = proportionally more drift. Critical K where c_crit crosses empirical populations.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">Pe ∝ K (linear)</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/13_crooks_ratio_calibration.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">13</span>
+      <span class="nb-title">Crooks Ratio Calibration</span>
+    </div>
+    <div class="nb-desc">Crooks ratio as empirical Pe estimator. Three-component decomposition. Sigma sensitivity surface. Practical calibration guide for new domains.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">Decomposition validated</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/14_two_agent_contamination_critical.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">14</span>
+      <span class="nb-title">Two-Agent Contamination</span>
+    </div>
+    <div class="nb-desc">Critical tipping in two-agent systems. Coupling J drives contamination. J_crit where drift cascades from agent A to B. Susceptibility map across (J, c) space.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">J_crit mapped</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/15_pe_distribution_fitting.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">15</span>
+      <span class="nb-title">Pe Distribution Fitting</span>
+    </div>
+    <div class="nb-desc">Lognormal distribution fits to empirical Pe values. Sigma sensitivity — how variance in platform design maps to spread in Pe. Three-component decomposition.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">σ sensitivity surface</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/16_repulsive_void_pe_negative.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">16</span>
+      <span class="nb-title">Repulsive Voids (Pe < 0)</span>
+    </div>
+    <div class="nb-desc">Platforms that actively repel attention — Pe < 0. Three-regime phase structure: attractive drift, near-equilibrium, repulsive diffusion. Extended Pe curve.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-low">Pe < 0 regime characterized</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/17_tail_inflation_decomposition.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">17</span>
+      <span class="nb-title">Tail Inflation</span>
+    </div>
+    <div class="nb-desc">Tail inflation as thermodynamic signature of drift. Mixture PDF decomposition. Sigma inflation surface across (c, K). Distinguishes drift from ordinary heavy-tailed distributions.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-mid">Mixture decomposed</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/18_demon_lattice_phases.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">18</span>
+      <span class="nb-title">Demon Lattice Phases</span>
+    </div>
+    <div class="nb-desc">Maxwell's demon lattice model of platform recommendation engines. Phase diagram: disordered → ordered → crystal onset. Vortex proximity as instability measure.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">3 phases characterized</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/19_causal_validation_synthesis.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">19</span>
+      <span class="nb-title">Causal Validation Synthesis</span>
+    </div>
+    <div class="nb-desc">Bradford Hill analysis across 27 causal criteria. Bayesian model comparison. Bradford Hill radar chart. The causal closure notebook — 24/27 met, BF log₁₀ = 4.0.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">BF log₁₀ = 4.0 (decisive)</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/20_demon_plasma_frequency.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">20</span>
+      <span class="nb-title">Demon Plasma Frequency</span>
+    </div>
+    <div class="nb-desc">Plasma frequency analogues in coupled void networks. Oscillation trajectories. Substrate-dependent plasma frequency mapping. Long-range coherence in drift fields.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">ω_p mapped per substrate</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/21_pe_recovery_asymmetry.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">21</span>
+      <span class="nb-title">Pe Recovery Asymmetry</span>
+    </div>
+    <div class="nb-desc">Hysteresis in Pe after constraint removal. Forward drift faster than reverse recovery. Asymmetric τ — system retains drift memory. Hysteresis loop characterization.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-mid">τ_drift ≠ τ_recovery</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/22_regulatory_intervention_optimum.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">22</span>
+      <span class="nb-title">Regulatory Intervention Optimum</span>
+    </div>
+    <div class="nb-desc">Optimal regulatory intervention timing and duration. Duration sweep across Pe traces. Substrate-specific intervention maps. Policy implication: early persistent constraint outperforms late strong intervention.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">Optimal τ per substrate</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/23_void_network_topology.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">23</span>
+      <span class="nb-title">Void Network Topology</span>
+    </div>
+    <div class="nb-desc">Network topology effects on Pe. Hub nodes amplify drift — hub contamination cascade. Percolation threshold for system-wide drift. Pe distribution across topologies.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">Hub amplification confirmed</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/24_competing_voids.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">24</span>
+      <span class="nb-title">Competing Voids</span>
+    </div>
+    <div class="nb-desc">Multi-platform competition dynamics. Winner-takes-all emergence. Depletion feedback — high-Pe platforms starve low-Pe competitors of attention. Market structure implications.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result pe-high">WTA regime characterized</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="section-header">
+  <h2>Empirical Experiments</h2>
+  <span class="count">5</span>
+</div>
+
+<div class="notebook-grid">
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/experiments/exp022_pew_retention_pe.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">EXP-022</span>
+      <span class="nb-title">Pew Research: Platform Retention Pe</span>
+    </div>
+    <div class="nb-desc">THRML fitted to Pew Research platform retention data. N=11 platforms. Empirical Pe distribution with 95% CI. Core result of the Void Framework causal case.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-exp">Empirical</span>
+      <span class="nb-result pe-high">Pe = 7.94 [3.52, 17.89]</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/experiments/exp022b_void_score_scatter.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">EXP-022B</span>
+      <span class="nb-title">Void Scores vs Péclet</span>
+    </div>
+    <div class="nb-desc">Scatter analysis of void dimension scores (opacity, responsiveness, engagement) against empirical Pe. Partial R² decomposition — opacity dominant driver (R²=0.71).</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-exp">Empirical</span>
+      <span class="nb-result">Opacity R² = 0.71</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/experiments/exp023_wikipedia_editor_pe.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">EXP-023</span>
+      <span class="nb-title">Wikipedia Editor (Null Case)</span>
+    </div>
+    <div class="nb-desc">Wikipedia editor activity as control — no engagement optimizer. Pe ≈ 1.02, near-equilibrium. First independent null case confirming Pe measures optimizer-driven drift, not general internet behavior.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-exp">Control</span>
+      <span class="nb-result pe-low">Pe = 1.02 (equilibrium)</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/experiments/exp024_passive_investing_control.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">EXP-024</span>
+      <span class="nb-title">Passive Investing (Null Case)</span>
+    </div>
+    <div class="nb-desc">ETF/index fund activity — no optimizer, no attention competition. Pe ≈ 0.98. Second independent control. Confirms thermodynamic null: optimizer-free systems remain at equilibrium.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-exp">Control</span>
+      <span class="nb-result pe-low">Pe = 0.98 (equilibrium)</span>
+    </div>
+  </a>
+
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/experiments/exp026_news_consumption_pe.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">EXP-026</span>
+      <span class="nb-title">News Consumption Pe Spectrum</span>
+    </div>
+    <div class="nb-desc">Pe across news outlet types. Print/broadcast: Pe ≈ 1.1. Cable news: Pe ≈ 3.2. Algorithmic news feed: Pe ≈ 8.3. Pe tracks optimizer presence and ACI frequency.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-exp">Empirical</span>
+      <span class="nb-result pe-high">Spectrum 1.1→8.3</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="section-header">
+  <h2>Selected Figures</h2>
+  <span class="count">57 SVGs</span>
+</div>
+
+<div class="figure-gallery">
+  <div class="fig-grid" id="figGrid">
+    <!-- Injected by JS -->
+  </div>
+</div>
+
+<footer>
+  <p>
+    Notebooks by <a href="https://moreright.xyz">MoreRight</a> · THRML by <a href="https://github.com/extropic-ai/thrml">Extropic AI</a> ·
+    <a href="https://github.com/MoreRightDAO/VOID-FRAMEWORK-OPERATION-MORR">Void Framework Papers</a> · CC-BY 4.0
+  </p>
+</footer>
+
+<script>
+// Inject figure cards dynamically from figures/ dir
+// GitHub Pages serves these statically; list them manually since no directory API in static hosting
+
+const figures = [
+  { file: "nb19_bradford_hill_radar.svg", caption: "Bradford Hill radar — 24/27 causal criteria met" },
+  { file: "nb19_causal_synthesis.svg", caption: "Causal synthesis — Bayesian model comparison BF log₁₀ = 4.0" },
+  { file: "nb08_phase_diagram.svg", caption: "Phase diagram (c, K) — Pe contours with empirical overlays" },
+  { file: "exp022_cross_domain_pe.svg", caption: "Cross-domain Pe — 11 platforms, Pew Research data" },
+  { file: "exp022_retention_pe_bar.svg", caption: "Platform retention Pe bar chart" },
+  { file: "exp022b_void_scatter.svg", caption: "Void score scatter vs empirical Pe" },
+  { file: "exp022b_dimension_breakdown.svg", caption: "Dimension breakdown — opacity, responsiveness, engagement" },
+  { file: "nb12_k_scaling.svg", caption: "K-scaling — Pe grows linearly with spin count" },
+  { file: "nb12_k_scaling_crit.svg", caption: "Critical K — where populations cross the drift boundary" },
+  { file: "nb14_critical_tipping.svg", caption: "Two-agent tipping — J_crit contamination threshold" },
+  { file: "nb18_demon_phase_diagram.svg", caption: "Demon lattice phase diagram" },
+  { file: "nb21_hysteresis_loop.svg", caption: "Pe recovery hysteresis — drift faster than recovery" },
+  { file: "nb22_substrate_intervention_map.svg", caption: "Regulatory intervention map — optimal timing by substrate" },
+  { file: "nb23_hub_contamination.svg", caption: "Hub contamination cascade in void network" },
+  { file: "nb24_winner_takes_all.svg", caption: "Winner-takes-all emergence in competing voids" },
+  { file: "exp023_wikipedia_pe_distribution.svg", caption: "Wikipedia editor Pe distribution — null case confirmed" },
+  { file: "exp024_passive_vs_active_pe.svg", caption: "Passive vs active investing Pe — second null case" },
+  { file: "exp026_news_pe_by_outlet.svg", caption: "News outlet Pe spectrum — print to algorithmic feed" },
+  { file: "nb15_pe_lognormal_fit.svg", caption: "Pe lognormal distribution fit" },
+  { file: "nb16_three_regime_phase.svg", caption: "Three-regime phase — attractive, equilibrium, repulsive" },
+  { file: "nb17_tail_inflation_main.svg", caption: "Tail inflation as thermodynamic drift signature" },
+  { file: "nb20_plasma_frequency_substrates.svg", caption: "Plasma frequency by substrate type" },
+  { file: "nb13_calibration.svg", caption: "Crooks ratio calibration" },
+  { file: "nb11_stablecoin_suppression.svg", caption: "Stablecoin constraint: Pe suppressed to < 1" },
+];
+
+const BASE = "figures/";
+const grid = document.getElementById("figGrid");
+
+figures.forEach(f => {
+  const card = document.createElement("div");
+  card.className = "fig-card";
+  card.innerHTML = `
+    <img src="${BASE}${f.file}" alt="${f.caption}" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <div class="fig-caption">${f.caption}</div>
+  `;
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>
