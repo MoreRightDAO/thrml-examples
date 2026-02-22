@@ -362,10 +362,10 @@
 
 <div class="hero">
   <h1>THRML applied to<br><span>behavioral drift</span></h1>
-  <p>28 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
+  <p>29 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">28</div>
+      <div class="stat-num">29</div>
       <div class="stat-label">Notebooks</div>
     </div>
     <div class="stat">
@@ -434,7 +434,7 @@
 
 <div class="section-header">
   <h2>Core Notebooks</h2>
-  <span class="count">23</span>
+  <span class="count">24</span>
 </div>
 
 <div class="notebook-grid">
@@ -715,6 +715,18 @@
     </div>
   </a>
 
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/25_market_microstructure_mapping.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">25</span>
+      <span class="nb-title">Market Microstructure Mapping</span>
+    </div>
+    <div class="nb-desc">Kyle's λ and Glosten-Milgrom spread mapped to void dimensions. λ = σ_v/(2σ_u) → Pe monotonically (Spearman = 1.000 across 8 venue types). Bid-ask spread IS the opacity tax. Fantasia Bound recovered as spread-volume conjugacy. 8 market venues on the nb10 THRML curve.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">Spearman(λ, Pe) = 1.000</span>
+    </div>
+  </a>
+
 </div>
 
 <div class="section-header">
@@ -788,7 +800,7 @@
 
 <div class="section-header">
   <h2>Selected Figures</h2>
-  <span class="count">57 SVGs</span>
+  <span class="count">60 SVGs</span>
 </div>
 
 <div class="figure-gallery">
@@ -833,6 +845,9 @@ const figures = [
   { file: "nb20_plasma_frequency_substrates.svg", caption: "Plasma frequency by substrate type" },
   { file: "nb13_calibration.svg", caption: "Crooks ratio calibration" },
   { file: "nb11_stablecoin_suppression.svg", caption: "Stablecoin constraint: Pe suppressed to < 1" },
+  { file: "nb25_kyle_lambda_pe_mapping.svg", caption: "Kyle's λ → Pe mapping — Spearman = 1.000 across 8 market venue types" },
+  { file: "nb25_gm_spread_opacity_tax.svg", caption: "Glosten-Milgrom spread as opacity tax — linear in O dimension" },
+  { file: "nb25_microstructure_phase_diagram.svg", caption: "Market microstructure phase diagram — 8 venues on the THRML curve" },
 ];
 
 const BASE = "figures/";

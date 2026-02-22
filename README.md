@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-28 Jupyter notebooks organized in two tracks:
+29 Jupyter notebooks organized in two tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -37,6 +37,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | 22 | `22_regulatory_intervention_optimum.ipynb` | Optimal regulatory intervention timing — duration sweep, substrate map |
 | 23 | `23_void_network_topology.ipynb` | Network topology effects on Pe — hub contamination and percolation |
 | 24 | `24_competing_voids.ipynb` | Competing void dynamics — winner-takes-all, depletion feedback, market structure |
+| 25 | `25_market_microstructure_mapping.ipynb` | Kyle's λ and G-M spread as void metrics — Spearman(λ, Pe) = 1.000 across 8 venue types. Fantasia Bound as spread-volume conjugacy. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
