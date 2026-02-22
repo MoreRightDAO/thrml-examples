@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-29 Jupyter notebooks organized in two tracks:
+30 Jupyter notebooks organized in two tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -38,6 +38,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | 23 | `23_void_network_topology.ipynb` | Network topology effects on Pe — hub contamination and percolation |
 | 24 | `24_competing_voids.ipynb` | Competing void dynamics — winner-takes-all, depletion feedback, market structure |
 | 25 | `25_market_microstructure_mapping.ipynb` | Kyle's λ and G-M spread as void metrics — Spearman(λ, Pe) = 1.000 across 8 venue types. Fantasia Bound as spread-volume conjugacy. |
+| 26 | `26_g1_bridge_verification.ipynb` | G1 bridge: (O,R,α) → c formal mapping. V3 linear form c = 1−V/9 wins at N=17 (Spearman=0.910, RMSE=0.066). G1+G4 gaps closed. Pe=0 boundary: V*=5.52/9. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 

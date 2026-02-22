@@ -362,10 +362,10 @@
 
 <div class="hero">
   <h1>THRML applied to<br><span>behavioral drift</span></h1>
-  <p>29 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
+  <p>30 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">29</div>
+      <div class="stat-num">30</div>
       <div class="stat-label">Notebooks</div>
     </div>
     <div class="stat">
@@ -434,7 +434,7 @@
 
 <div class="section-header">
   <h2>Core Notebooks</h2>
-  <span class="count">24</span>
+  <span class="count">25</span>
 </div>
 
 <div class="notebook-grid">
@@ -727,6 +727,18 @@
     </div>
   </a>
 
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/26_g1_bridge_verification.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">26</span>
+      <span class="nb-title">G1 Bridge Verification</span>
+    </div>
+    <div class="nb-desc">Formal bridge from Eckert Manifold (O,R,α) void scores to THRML constraint level c. Three candidate forms tested on N=17 substrates (9 behavioral + 8 market micro). V3 linear form c = 1 − V/9 wins decisively — product forms falsified. Pe=0 boundary in void score space: V* = 5.52/9. Closes G1 and G4 gaps simultaneously.</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">V3 Spearman = 0.910, RMSE = 0.066</span>
+    </div>
+  </a>
+
 </div>
 
 <div class="section-header">
@@ -800,7 +812,7 @@
 
 <div class="section-header">
   <h2>Selected Figures</h2>
-  <span class="count">60 SVGs</span>
+  <span class="count">63 SVGs</span>
 </div>
 
 <div class="figure-gallery">
@@ -848,6 +860,9 @@ const figures = [
   { file: "nb25_kyle_lambda_pe_mapping.svg", caption: "Kyle's λ → Pe mapping — Spearman = 1.000 across 8 market venue types" },
   { file: "nb25_gm_spread_opacity_tax.svg", caption: "Glosten-Milgrom spread as opacity tax — linear in O dimension" },
   { file: "nb25_microstructure_phase_diagram.svg", caption: "Market microstructure phase diagram — 8 venues on the THRML curve" },
+  { file: "nb26_bridge_predicted_vs_calibrated.svg", caption: "G1 bridge: V1/V2/V3 predicted vs calibrated c — V3 linear wins (Spearman=0.910)" },
+  { file: "nb26_bridge_surface_comparison.svg", caption: "Bridge surface along O=R=α diagonal — V3 vs product forms" },
+  { file: "nb26_bridge_residuals.svg", caption: "G1 bridge residuals by substrate — V3 RMSE = 0.066" },
 ];
 
 const BASE = "figures/";
