@@ -362,7 +362,7 @@
 
 <div class="hero">
   <h1>THRML applied to<br><span>behavioral drift</span></h1>
-  <p>33 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
+  <p>34 Jupyter notebooks using Thermodynamic Representation of Machine Learning to measure, calibrate, and predict attention capture in AI systems. All results reproducible from public data.</p>
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-num">32</div>
@@ -434,7 +434,7 @@
 
 <div class="section-header">
   <h2>Core Notebooks</h2>
-  <span class="count">28</span>
+  <span class="count">29</span>
 </div>
 
 <div class="notebook-grid">
@@ -775,6 +775,18 @@
     </div>
   </a>
 
+  <a class="nb-card" href="https://github.com/MoreRightDAO/thrml-examples/blob/main/notebooks/core/30_kimura_thrml_convergence.ipynb">
+    <div class="nb-header">
+      <span class="nb-num">30</span>
+      <span class="nb-title">Kimura-THRML Convergence</span>
+    </div>
+    <div class="nb-desc">Biology: THRML Pe = 4N·s (Kimura 1968) — exact first-order identity derived from different axioms. Third independent convergence across domains. Spearman=0.973 on 10 biological substrates (Pe_bio from published s values). Red Queen derived as theorem: R=0 keeps V below V*, not observation. Sinh captures epistasis (1.06x at s=0.15). D1→D2→D3: adaptive complexity → endosymbiosis → behavioral manipulation (Toxoplasma, Ophiocordyceps, Sacculina — all V=9).</div>
+    <div class="nb-footer">
+      <span class="nb-tag tag-core">Core</span>
+      <span class="nb-result">Spearman=0.973, Red Queen as theorem</span>
+    </div>
+  </a>
+
 </div>
 
 <div class="section-header">
@@ -848,7 +860,7 @@
 
 <div class="section-header">
   <h2>Selected Figures</h2>
-  <span class="count">67 SVGs</span>
+  <span class="count">68 SVGs</span>
 </div>
 
 <div class="figure-gallery">
@@ -903,6 +915,7 @@ const figures = [
   { file: "nb27_weight_sensitivity.svg", caption: "Spearman/RMSE flat across opacity weight range [0.6, 1.6] — no empirical basis for reweighting" },
   { file: "nb28_coupling_emergence.svg", caption: "Coupling emergence: α decomposed into emergent (O+R, R²=0.69) and structural components. D2→D3 cascade confirmed." },
   { file: "nb29_validation_robustness.svg", caption: "Validation robustness: out-of-sample (c_kyle) Spearman=0.994. LOO stability [0.892, 0.958]. IRR floor: κ_α ≥ 0.33." },
+  { file: "nb30_kimura_thrml_convergence.svg", caption: "Biology: Kimura-THRML identity (Pe=4Ns exact), third convergence Spearman=0.973. Red Queen as theorem. D3 behavioral parasites at V=9." },
 ];
 
 const BASE = "figures/";

@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-33 Jupyter notebooks organized in two tracks:
+34 Jupyter notebooks organized in two tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -42,6 +42,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | 27 | `27_dimension_weighting.ipynb` | G2: OLS regression tests equal-weighting of O, R, α. F(2,13)=0.955, p=0.41 — equal weights vindicated. Sensitivity sweep flat. V3 canonical form confirmed. |
 | 28 | `28_coupling_emergence.ipynb` | Is α downstream of O×R? R²=0.693: coupling 69% explained by O+R. R→α > O→α confirms D2→D3 proximal cascade step. Structural α identifies lock-in. Scoring protocol updated. |
 | 29 | `29_validation_robustness.ipynb` | V3 bridge out-of-sample and IRR robustness. Market micro (independent c_kyle) Spearman=0.994 > behavioural (circular) 0.713 — circularity objection self-refuting. LOO range [0.892, 0.958]. Min κ_α ≥ 0.33 for bridge to hold. |
+| 30 | `30_kimura_thrml_convergence.ipynb` | Biology: THRML Pe = 4Ns (Kimura 1968) — exact first-order identity, third independent convergence. Spearman=0.973 on biological substrates. Red Queen derived as theorem. D1→D2→D3 maps to adaptive complexity → symbiosis → behavioral manipulation. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
