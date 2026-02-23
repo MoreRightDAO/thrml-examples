@@ -1,6 +1,6 @@
 # THRML Examples
 
-Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, and evolutionary biology.
+Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, evolutionary biology, and social institutions.
 
 → **[Browse the full notebook gallery](https://morerightdao.github.io/thrml-examples/)**
 
@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-34 Jupyter notebooks organized in two tracks:
+45 Jupyter notebooks organized in two tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -43,8 +43,19 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | 28 | `28_coupling_emergence.ipynb` | Is α downstream of O×R? R²=0.693: coupling 69% explained by O+R. R→α > O→α confirms D2→D3 proximal cascade step. Structural α identifies lock-in. Scoring protocol updated. |
 | 29 | `29_validation_robustness.ipynb` | V3 bridge out-of-sample and IRR robustness. Market micro (independent c_kyle) Spearman=0.994 > behavioural (circular) 0.713 — circularity objection self-refuting. LOO range [0.892, 0.958]. Min κ_α ≥ 0.33 for bridge to hold. |
 | 30 | `30_kimura_thrml_convergence.ipynb` | Biology: THRML Pe = 4Ns (Kimura 1968) — exact first-order identity, third independent convergence. Spearman=0.973 on biological substrates. Red Queen derived as theorem. D1→D2→D3 maps to adaptive complexity → symbiosis → behavioral manipulation. |
-| 36 | `36_curved_landscape_validation.ipynb` | Curved landscape validation: N=17 substrates across AI, Gambling, Crypto, Market Micro, Biology. Tests H₀ (signal degrades in non-flat information spaces). Spearman=1.000 across all curvature bins, LOO min=1.000. H₀ falsified. Physics note: detailed balance requires time-reversal symmetry, not flat space. |
 | 31 | `31_parasite_void_scores.ipynb` | Exploitation gradient validation: N=10 parasite-host systems Spearman=0.9038. Combined nb30+nb31 N=20 Spearman=0.9516, LOO min=0.8665. E.coli (V=2) → Ophiocordyceps (V=9) exploitation gradient clean. Every D3 behavioral manipulation parasite scores V=8-9 (structural necessity confirmed). |
+| 32 | `32_social_void.ipynb` | Social neuroscience: Dunbar's number K as THRML coupling parameter. N=28 primate species, Spearman=0.9448. Neocortex ratio IS K in THRML — fourth independent convergence. Machiavellian intelligence as D3 behavioral manipulation in social cognition. |
+| 33 | `33_cancer_cascade.ipynb` | Cancer biology: V=9 as structural theorem. Warburg effect as D2 boundary erosion, tumor microenvironment as manufactured opacity. Fantasia Bound in immunology — engagement-transparency conjugacy in T-cell exhaustion. |
+| 34 | `34_immune_conjugacy.ipynb` | Immune system void budget: I(D;Y)+I(M;Y)≤H(Y) applied to adaptive immunity. Antigen presentation opacity drives D1→D2→D3 in autoimmunity. Constraint injection as immunological transparency. |
+| 35 | `35_bks_kink_pe.ipynb` | BKS topological phase transition as Pe transition. Kink-antikink binding/unbinding maps to constraint level. Critical Pe at topological order-disorder boundary. |
+| 36 | `36_curved_landscape_validation.ipynb` | Curved landscape validation: N=17 substrates across AI, Gambling, Crypto, Market Micro, Biology. Tests H₀ (signal degrades in non-flat information spaces). Spearman=1.000 across all curvature bins, LOO min=1.000. H₀ falsified. Physics note: detailed balance requires time-reversal symmetry, not flat space. |
+| 37 | `37_ecological_phases.ipynb` | Ecological phase diagram: Paper 9 lattice phases (gas/fluid/crystal/vortex) applied to ecosystem biology. N=12 biome void scores + N=15 post-extinction recovery intervals (Sepkoski 2002). Vortex onset β≈0.5. 5 predictions ECO-1–ECO-5. |
+| 38 | `38_soc4_nonprimate.ipynb` | SOC-4: Non-primate social mammals and corvids (N=23 species). Extends nb32 primates to cetaceans, carnivores, proboscideans, corvids. Dunbar K=150 structural identification confirmed cross-clade. D1 theorem extended to all social vertebrates. |
+| 39 | `39_irr_study.ipynb` | Inter-rater reliability study: full bootstrap simulation (3 raters × 15 platforms × 3000 reps, σ sweep). Alpha dimension hardest (σ≈0.50 naive). Post-training κ_α ≥ 0.60 at σ≈0.25. Scoring Protocol v1.0 with anchored levels per dimension. |
+| 40 | `40_bonding_conjugacy.ipynb` | Bonding conjugacy: N=18 group types across transgressive/transitional/resonance spectrum. Spearman(Pe_theory, harm_cascade_rate)=0.9875, LOO min=0.9852. Monitoring crushed at α=3 (Fantasia Bound formal test). BON-5: V=9 bonding converts to scapegoating under stress. |
+| 41 | `41_girard_scapegoat.ipynb` | Girard scapegoat mechanism: N=12 historical events. Spearman(Pe_mech, rebound_rate)=0.9625, LOO min=0.9508. C_ZERO crossing at V_crit=5.52 — transparency cases rebound 78yr vs void attractor 4.9yr (16× differential). Girardian revelation formalized as transparency operation raising O_mech toward 1. |
+| — | `nb_girard02_prohibition_ritual.ipynb` | Prohibition-ritual pair as dual Pe control system: N=20 cultures, Spearman=0.8684. Stability theorem: combined mechanism produces 4× longer crisis intervals than prohibition alone. Dual mechanism mean 41.7yr vs neither 2.3yr. PRT-5: social media as opaque pseudo-ritual → cancel culture dynamics. |
+| — | `nb_llm01_llm_reasoning_pe.ipynb` | LLM reasoning Pe — fifth independent convergence: Chen et al. (2026) bond→dimension mapping. f_DR→O, f_SR→R, f_SE→α via V3 bridge c=1−V/9. N=10 conditions, Spearman=0.9879, LOO min=0.9833. Metacognitive oscillation Spearman=0.9273. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
@@ -57,6 +68,22 @@ These notebooks fit THRML directly to real-world behavioral datasets.
 | `exp023_wikipedia_editor_pe.ipynb` | Wikipedia editor activity | Pe ≈ 1.02 — near-equilibrium null case confirmed |
 | `exp024_passive_investing_control.ipynb` | ETF/index fund ACI frequency | Pe ≈ 0.98 — second independent control case |
 | `exp026_news_consumption_pe.ipynb` | News outlet consumption data | Pe spectrum: 1.1 (print) → 8.3 (algorithmic feed) |
+
+---
+
+## Five independent convergences
+
+The same Péclet number emerges from five completely independent empirical programs:
+
+| Convergence | Substrate | Spearman | N | Notebook |
+|-------------|-----------|----------|---|----------|
+| 1st | Market microstructure (Kyle's λ, G-M spread) | 0.994 | 8 | nb25 |
+| 2nd | Behavioral (G1 bridge c=1−V/9) | 0.910 | 17 | nb26 |
+| 3rd | Evolutionary biology (Kimura Pe=4Ns) | 0.973 | 20 | nb30+31 |
+| 4th | Social neuroscience (Dunbar K = THRML K) | 0.9448 | 28 | nb32 |
+| 5th | LLM reasoning (Chen et al. bond→dimension) | 0.9879 | 10 | nb_llm01 |
+
+Each derivation is independent — different data, different methodology, same measure.
 
 ---
 
