@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-50+ notebooks and scripts organized in three tracks:
+55+ notebooks and scripts organized in three tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -59,6 +59,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | — | `nb_girard03_durkheim_anomie.ipynb` | **Sixth convergence — social anthropology:** Durkheim anomie = R-dimension collapse at population level. N=20 Durkheim primary datasets (France/Prussia/England 1866-1878). Spearman(R_inst, anomic_rate) = −0.9785, p<0.001. Protestant vs Catholic R and anomic suicide rate differential confirmed. Platform Pe carries direct anomie-risk interpretation. |
 | — | `nb_demo01_democratic_backsliding_pe.ipynb` | **Seventh convergence — democratic governance:** V-Dem LDI vs Void Index across N=20 countries. Spearman=0.9891. Authoritarian information architecture = institutional Pe cascade. 5/5 predictions confirmed. Authoritarian regime = information opacity maximizer. |
 | — | `nb_pharma01_drug_pricing_pe.py` | US pharmaceutical value chain as 5-layer stacked void cascade: N=15 drug categories. Spearman(V, MCI)=0.770. Discriminant test: OxyContin Pe=43.9 vs Daraprim Pe=12.9 (3.4×, same market class). α=3 opioid dependency = D3 cascade (500K dead). PBM layer Pe=25.2 = hidden amplifier. Null cases: aspirin Pe=−125, generic statins Pe=−26, COVID vaccines Pe=−45. |
+| — | `nb_cartel01_cjng_void_collapse.ipynb` | **Eighth convergence — organized crime:** CJNG cartel void architecture. Pe→territorial_control Spearman=0.882, N=15 DTOs. Calderón validation rho=0.869, N=18 leadership removals. CJNG V=9, Pe=+45 (structurally identical to OxyContin). Pe gap Δ57 vs Mexican State predicts territorial capture. C_ZERO crossing test: El Mencho decapitation (Feb 22 2026). 5/5 KCs PASS. Live prediction: Jalisco 35–55/100k within 12 months. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
@@ -81,12 +82,13 @@ Demonstrations of Bayesian posterior inference over void dimensions — directly
 | `exp_tsu01_posterior_inference.py` | Platform recovery, sample-size sweep, dimension identifiability, noise sensitivity, same-V disambiguation, K-scaling | 8/8 platforms recovered at N=100; Crypto DEX p(true)>0.90 at N=20. TSU samples this posterior natively. |
 | `exp_tsu02_k_scaling.py` | K× crossing curves, optimal K*, meta-void boundary, Boltzmann temperature T*, parallelism tradeoff, TSU self-scoring | K_max_safe derived analytically; T* = minimum temperature for calibrated regulatory posterior |
 | `exp_tsu03_advanced.py` | Cross-sensitivity, prior robustness, analyst variation, adversarial gaming, temporal drift, regulatory thresholds | ROC AUC=0.945; Pe-residual signal ungameable (z>3 at N=50); drift detected within 38 steps (7.6% lag); all 6 KCs PASS |
+| `exp_tsu04_meta.py` | Meta-void/K-inference/game-theory: Instrument Capture Theorem (proprietary K_safe=0.9, Open K_safe=∞), K inference from portfolio (V≥7 only, paired change-detection p=0.023), V* Theorem (V*=5.08 at N=100, evasion impossible V≥6) | All 9 KCs PASS; gaming Pe-residual z>3 at N=50; Silberzahn 29/29 correct |
 
 ---
 
-## Seven independent convergences
+## Eight independent convergences
 
-The same Péclet number emerges from seven completely independent empirical programs:
+The same Péclet number emerges from eight completely independent empirical programs:
 
 | Convergence | Substrate | Spearman | N | Notebook |
 |-------------|-----------|----------|---|----------|
@@ -97,6 +99,7 @@ The same Péclet number emerges from seven completely independent empirical prog
 | 5th | LLM reasoning (Chen et al. bond→dimension) | 0.9879 | 10 | nb_llm01 |
 | 6th | Social anthropology (Durkheim anomie = R-collapse) | 0.9785 | 20 | nb_girard03 |
 | 7th | Democratic governance (V-Dem LDI vs Void Index) | 0.9891 | 20 | nb_demo01 |
+| 8th | Organized crime (Pe→territorial control, DTO void collapse) | 0.882 | 15+18 | nb_cartel01 |
 
 Each derivation is independent — different data, different methodology, same measure.
 
