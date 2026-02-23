@@ -1,6 +1,6 @@
 # THRML Examples
 
-Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems.
+Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, and evolutionary biology.
 
 → **[Browse the full notebook gallery](https://morerightdao.github.io/thrml-examples/)**
 
