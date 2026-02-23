@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-45 Jupyter notebooks organized in two tracks:
+50+ notebooks and scripts organized in three tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -56,6 +56,9 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | 41 | `41_girard_scapegoat.ipynb` | Girard scapegoat mechanism: N=12 historical events. Spearman(Pe_mech, rebound_rate)=0.9625, LOO min=0.9508. C_ZERO crossing at V_crit=5.52 — transparency cases rebound 78yr vs void attractor 4.9yr (16× differential). Girardian revelation formalized as transparency operation raising O_mech toward 1. |
 | — | `nb_girard02_prohibition_ritual.ipynb` | Prohibition-ritual pair as dual Pe control system: N=20 cultures, Spearman=0.8684. Stability theorem: combined mechanism produces 4× longer crisis intervals than prohibition alone. Dual mechanism mean 41.7yr vs neither 2.3yr. PRT-5: social media as opaque pseudo-ritual → cancel culture dynamics. |
 | — | `nb_llm01_llm_reasoning_pe.ipynb` | LLM reasoning Pe — fifth independent convergence: Chen et al. (2026) bond→dimension mapping. f_DR→O, f_SR→R, f_SE→α via V3 bridge c=1−V/9. N=10 conditions, Spearman=0.9879, LOO min=0.9833. Metacognitive oscillation Spearman=0.9273. |
+| — | `nb_girard03_durkheim_anomie.ipynb` | **Sixth convergence — social anthropology:** Durkheim anomie = R-dimension collapse at population level. N=20 Durkheim primary datasets (France/Prussia/England 1866-1878). Spearman(R_inst, anomic_rate) = −0.9785, p<0.001. Protestant vs Catholic R and anomic suicide rate differential confirmed. Platform Pe carries direct anomie-risk interpretation. |
+| — | `nb_demo01_democratic_backsliding_pe.ipynb` | **Seventh convergence — democratic governance:** V-Dem LDI vs Void Index across N=20 countries. Spearman=0.9891. Authoritarian information architecture = institutional Pe cascade. 5/5 predictions confirmed. Authoritarian regime = information opacity maximizer. |
+| — | `nb_pharma01_drug_pricing_pe.py` | US pharmaceutical value chain as 5-layer stacked void cascade: N=15 drug categories. Spearman(V, MCI)=0.770. Discriminant test: OxyContin Pe=43.9 vs Daraprim Pe=12.9 (3.4×, same market class). α=3 opioid dependency = D3 cascade (500K dead). PBM layer Pe=25.2 = hidden amplifier. Null cases: aspirin Pe=−125, generic statins Pe=−26, COVID vaccines Pe=−45. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
@@ -69,11 +72,21 @@ These notebooks fit THRML directly to real-world behavioral datasets.
 | `exp024_passive_investing_control.ipynb` | ETF/index fund ACI frequency | Pe ≈ 0.98 — second independent control case |
 | `exp026_news_consumption_pe.ipynb` | News outlet consumption data | Pe spectrum: 1.1 (print) → 8.3 (algorithmic feed) |
 
+### TSU Posterior Inference (`notebooks/experiments/`)
+
+Demonstrations of Bayesian posterior inference over void dimensions — directly maps to TSU hardware computation (P(O,R,α|data) ∝ exp(−E/T) is a native Boltzmann distribution).
+
+| Script | Scenarios | Key result |
+|--------|-----------|------------|
+| `exp_tsu01_posterior_inference.py` | Platform recovery, sample-size sweep, dimension identifiability, noise sensitivity, same-V disambiguation, K-scaling | 8/8 platforms recovered at N=100; Crypto DEX p(true)>0.90 at N=20. TSU samples this posterior natively. |
+| `exp_tsu02_k_scaling.py` | K× crossing curves, optimal K*, meta-void boundary, Boltzmann temperature T*, parallelism tradeoff, TSU self-scoring | K_max_safe derived analytically; T* = minimum temperature for calibrated regulatory posterior |
+| `exp_tsu03_advanced.py` | Cross-sensitivity, prior robustness, analyst variation, adversarial gaming, temporal drift, regulatory thresholds | ROC AUC=0.945; Pe-residual signal ungameable (z>3 at N=50); drift detected within 38 steps (7.6% lag); all 6 KCs PASS |
+
 ---
 
-## Five independent convergences
+## Seven independent convergences
 
-The same Péclet number emerges from five completely independent empirical programs:
+The same Péclet number emerges from seven completely independent empirical programs:
 
 | Convergence | Substrate | Spearman | N | Notebook |
 |-------------|-----------|----------|---|----------|
@@ -82,6 +95,8 @@ The same Péclet number emerges from five completely independent empirical progr
 | 3rd | Evolutionary biology (Kimura Pe=4Ns) | 0.973 | 20 | nb30+31 |
 | 4th | Social neuroscience (Dunbar K = THRML K) | 0.9448 | 28 | nb32 |
 | 5th | LLM reasoning (Chen et al. bond→dimension) | 0.9879 | 10 | nb_llm01 |
+| 6th | Social anthropology (Durkheim anomie = R-collapse) | 0.9785 | 20 | nb_girard03 |
+| 7th | Democratic governance (V-Dem LDI vs Void Index) | 0.9891 | 20 | nb_demo01 |
 
 Each derivation is independent — different data, different methodology, same measure.
 
