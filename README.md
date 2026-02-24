@@ -1,6 +1,6 @@
 # THRML Examples
 
-Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, evolutionary biology, and social institutions.
+Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, evolutionary biology, social institutions, public health, and agent networks.
 
 → **[Browse the full notebook gallery](https://morerightdao.github.io/thrml-examples/)**
 
@@ -8,7 +8,7 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 
 ## What's here
 
-55+ notebooks and scripts organized in three tracks:
+60+ notebooks and scripts organized in three tracks:
 
 ### Core THRML Mechanics (`notebooks/core/`)
 
@@ -60,6 +60,9 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | — | `nb_demo01_democratic_backsliding_pe.ipynb` | **Seventh convergence — democratic governance:** V-Dem LDI vs Void Index across N=20 countries. Spearman=0.9891. Authoritarian information architecture = institutional Pe cascade. 5/5 predictions confirmed. Authoritarian regime = information opacity maximizer. |
 | — | `nb_pharma01_drug_pricing_pe.py` | US pharmaceutical value chain as 5-layer stacked void cascade: N=15 drug categories. Spearman(V, MCI)=0.770. Discriminant test: OxyContin Pe=43.9 vs Daraprim Pe=12.9 (3.4×, same market class). α=3 opioid dependency = D3 cascade (500K dead). PBM layer Pe=25.2 = hidden amplifier. Null cases: aspirin Pe=−125, generic statins Pe=−26, COVID vaccines Pe=−45. |
 | — | `nb_cartel01_cjng_void_collapse.ipynb` | **Eighth convergence — organized crime:** CJNG cartel void architecture. Pe→territorial_control Spearman=0.882, N=15 DTOs. Calderón validation rho=0.869, N=18 leadership removals. CJNG V=9, Pe=+45 (structurally identical to OxyContin). Pe gap Δ57 vs Mexican State predicts territorial capture. C_ZERO crossing test: El Mencho decapitation (Feb 22 2026). 5/5 KCs PASS. Live prediction: Jalisco 35–55/100k within 12 months. |
+| — | `nb_pubhealth01_vaccine_trust_pe.ipynb` | **Ninth convergence — public health:** Vaccine trust collapse as institutional R-dimension failure. N=22 country-level observations. Spearman(institutional_R, vaccine_trust) = −0.951 (p<0.001). Dual regulatory void Pe=52.9 (exceeds OxyContin 43.9 and CJNG 45.0). Developmental window ODE: time-integral Pe exposure. Two-layer multiplicative coupling theorem (super-additivity). Nordic null cases (R=0, trust>80%) confirmed. Durkheim anomie identity extends to public health. |
+| — | `nb_moltbook01/nb_moltbook01.py` | **Tenth convergence — agent network dynamics:** Swarm Attractor simulation. N*=3% grounded agents suppress local Pe by ≥10% in Pe=60 peer-learning network (Moltbook, 2.4M agents). Angel drift: t_cross=950 steps. Ritual reinforcement (T=50) beats burst+spread+rotation. Spearman(N*, Pe_suppression) = 0.9612 (N-sweep). D3-level Pe=+60 → Pe=+54 at N*. Kill condition: grounding holds as |b_net_angel| >> coupling pressure. 6/6 KCs PASS. |
+| — | `nb_paper52_constraint_current.py` | **New math: Constraint Current.** J_{A→B} = −σ·[Pe(V_B)−Pe(V_A)] by analogy with Fourier's law. Analytical gradient dPe/dV = K·cosh(2·b_net(V))·(2·b_γ/9) — always positive, Pe strictly monotone. N=10 international governance mechanisms: Spearman(Pe, effectiveness) = −0.865 (p=0.0012). V*=5.52 empirical threshold: all V≤5 succeeded, all V≥6 failed/persists. Extraction circuit (σ>0) vs constraint current (σ<0) derived. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
@@ -86,9 +89,9 @@ Demonstrations of Bayesian posterior inference over void dimensions — directly
 
 ---
 
-## Eight independent convergences
+## Ten independent convergences
 
-The same Péclet number emerges from eight completely independent empirical programs:
+The same Péclet number emerges from ten completely independent empirical programs:
 
 | Convergence | Substrate | Spearman | N | Notebook |
 |-------------|-----------|----------|---|----------|
@@ -100,6 +103,8 @@ The same Péclet number emerges from eight completely independent empirical prog
 | 6th | Social anthropology (Durkheim anomie = R-collapse) | 0.9785 | 20 | nb_girard03 |
 | 7th | Democratic governance (V-Dem LDI vs Void Index) | 0.9891 | 20 | nb_demo01 |
 | 8th | Organized crime (Pe→territorial control, DTO void collapse) | 0.882 | 15+18 | nb_cartel01 |
+| 9th | Public health (institutional R-collapse → vaccine trust) | −0.951 | 22 | nb_pubhealth01 |
+| 10th | Agent network dynamics (N*=3% grounded agents, Pe suppression) | 0.9612 | N-sweep | nb_moltbook01 |
 
 Each derivation is independent — different data, different methodology, same measure.
 
