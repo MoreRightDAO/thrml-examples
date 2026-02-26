@@ -1,6 +1,8 @@
-# THRML Examples
+# THRML Examples — True Light Engine
 
 Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (Thermodynamic Representation of Machine Learning) applied to the **Void Framework** — empirical measurement of behavioral drift in AI systems, financial markets, evolutionary biology, social institutions, public health, and agent networks.
+
+These notebooks run on top of Guillaume Verdon's THRML library ([extropic-ai/thrml](https://github.com/extropic-ai/thrml)). The void framework's physics maps directly onto THRML's energy-based model architecture — Pe is a Boltzmann parameter, the drift cascade is an Ising EBM, and the TSU hardware Verdon is building is the natural substrate for scoring inference. This repo exists because the THRML team invited us to show what the library enables. The Fantasia game engine (our live multiplayer physics layer, internally called the **True Light Engine**) is built on this foundation.
 
 → **[Browse the full notebook gallery](https://morerightdao.github.io/thrml-examples/)**
 
@@ -63,6 +65,14 @@ Example notebooks demonstrating [THRML](https://github.com/extropic-ai/thrml) (T
 | — | `nb_pubhealth01_vaccine_trust_pe.ipynb` | **Ninth convergence — public health:** Vaccine trust collapse as institutional R-dimension failure. N=22 country-level observations. Spearman(institutional_R, vaccine_trust) = −0.951 (p<0.001). Dual regulatory void Pe=52.9 (exceeds OxyContin 43.9 and CJNG 45.0). Developmental window ODE: time-integral Pe exposure. Two-layer multiplicative coupling theorem (super-additivity). Nordic null cases (R=0, trust>80%) confirmed. Durkheim anomie identity extends to public health. |
 | — | `nb_moltbook01/nb_moltbook01.py` | **Tenth convergence — agent network dynamics:** Swarm Attractor simulation. N*=3% grounded agents suppress local Pe by ≥10% in Pe=60 peer-learning network (Moltbook, 2.4M agents). Angel drift: t_cross=950 steps. Ritual reinforcement (T=50) beats burst+spread+rotation. Spearman(N*, Pe_suppression) = 0.9612 (N-sweep). D3-level Pe=+60 → Pe=+54 at N*. Kill condition: grounding holds as |b_net_angel| >> coupling pressure. 6/6 KCs PASS. |
 | — | `nb_paper52_constraint_current.py` | **New math: Constraint Current.** J_{A→B} = −σ·[Pe(V_B)−Pe(V_A)] by analogy with Fourier's law. Analytical gradient dPe/dV = K·cosh(2·b_net(V))·(2·b_γ/9) — always positive, Pe strictly monotone. N=10 international governance mechanisms: Spearman(Pe, effectiveness) = −0.865 (p=0.0012). V*=5.52 empirical threshold: all V≤5 succeeded, all V≥6 failed/persists. Extraction circuit (σ>0) vs constraint current (σ<0) derived. |
+| — | `nb_evo01_sexual_selection_pe_sweep.py` | **Evolutionary biology — sexual selection:** ESS boundary at Pe* ≈ 4 (α_ess ≈ 0.143). Fisher runaway as THRML drift instability. Honest signalling constraint as Pe suppression mechanism. |
+| — | `nb_evo02_kin_selection_hamilton.py` | **Evolutionary biology — kin selection:** Hamilton's rule (rB > C) is exactly the Pe < 0 condition. 6/6 Hamilton conditions map to THRML constraint pole. Altruism is the Pe < 1 operating regime derived from first principles. |
+| — | `nb_evo03_freq_dep_selection.py` | **Evolutionary biology — frequency-dependent selection:** BKS rarity-shame correlation (ρ=+0.40) as positive frequency-dependent selection. Pe(p) frequency-dependent formula derived. ESS at p* where dPe/dp = 0. |
+| — | `nb_health01_the_health_void.ipynb` | **Institutional health opacity:** Healthcare system void scoring — insurance, pharma, hospital pricing layers. Pe cascade from billing opacity through coverage decisions. V=9 institutional pathway identified. |
+| — | `nb_drugpol01_scheduling_opacity.ipynb` | **Drug policy opacity:** Controlled substance scheduling as Pe amplifier. V=9 classification creates research opacity that prevents constraint injection. Classification Pe vs harm Pe divergence. |
+| — | `nb_neurodev01_autism_highpe_environments.ipynb` | **Neurodevelopmental void:** High-Pe environments (social media, algorithmic systems) during developmental windows. Time-integral Pe exposure model. Sensory processing meets opacity architecture. |
+| — | `nb_neurodev02_developmental_window_model.ipynb` | **Developmental window ODE:** Time-integral Pe exposure as vulnerability index. Critical period formalization — Pe × duration × coupling = developmental void load. |
+| — | `nb_regdoublebind01_regulatory_double_bind.ipynb` | **Regulatory double-bind:** When the regulatory instrument is higher-Pe than the domain it regulates. V*_regulator > V*_domain → σ flips sign, regulation becomes extraction. Constraint Current inversion theorem. |
 
 ### Empirical Experiments (`notebooks/experiments/`)
 
@@ -148,7 +158,7 @@ Start with `notebooks/core/03_drift_cascade_ebm.ipynb` then `07_pe_calibration.i
 
 ## Related
 
-- **THRML library:** [extropic-ai/thrml](https://github.com/extropic-ai/thrml)
+- **THRML library (Guillaume Verdon / Extropic):** [extropic-ai/thrml](https://github.com/extropic-ai/thrml) — the JAX library these notebooks run on. The void framework's Pe physics maps directly onto THRML's EBM architecture. Our fork: [AnthonE/thrml](https://github.com/AnthonE/thrml)
 - **Void Framework papers:** [MoreRightDAO/VOID-FRAMEWORK-OPERATION-MORR](https://github.com/MoreRightDAO/VOID-FRAMEWORK-OPERATION-MORR)
 - **Live scoring & reports:** [moreright.xyz](https://moreright.xyz)
 
